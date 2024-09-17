@@ -1,4 +1,4 @@
-fn insertion_sort(list:&mut Vec<i32>) 
+fn insertion_sortcres(list:&mut Vec<i32>) 
 {   let len = list.len();
     
     for element in 1..len{
@@ -21,7 +21,38 @@ fn insertion_sort(list:&mut Vec<i32>)
 
 }
 
+fn insertion_sortdec(list:&mut Vec<i32>) 
+{   let len = list.len();
+    
+    for element in 1..len{
+        let  key=list[element];
+        let mut i = (element as isize) - 1;
+        while i >=0 &&list[i as usize] <key {
+            list[(i + 1) as usize]=list[(i) as usize];
+            i=i-1;
+      
+        }
+        list[(i + 1) as usize]=key;
+    }
 
+
+
+
+
+
+
+
+}
+fn linear_search(index:i32,list:&mut Vec<i32>) -> Option<usize>
+{
+    for (i, &element) in list.iter().enumerate() {
+        if element==index {
+            return some(i)
+        }
+        
+    }
+ None
+}
 
 
 
@@ -36,6 +67,8 @@ fn main() {
     vector.push(5);
     vector.push(13);
     vector.push(22);
-    insertion_sort(&mut vector);  
+    insertion_sortcres(&mut vector);  
+    println!("Vetor ordenado: {:?}", vector); 
+    insertion_sortdec(&mut vector);  
     println!("Vetor ordenado: {:?}", vector); 
 }

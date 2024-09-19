@@ -36,7 +36,7 @@ fn insertion_sortdec(list:&mut Vec<i32>)
     }
 
 
-
+ 
 
 
 
@@ -47,7 +47,7 @@ fn linear_search(index:i32,list:&mut Vec<i32>) -> Option<usize>
 {
     for (i, &element) in list.iter().enumerate() {
         if element==index {
-            return some(i)
+            return Some(i) ;
         }
         
     }
@@ -67,8 +67,13 @@ fn main() {
     vector.push(5);
     vector.push(13);
     vector.push(22);
+    let num:i32=2;
     insertion_sortcres(&mut vector);  
     println!("Vetor ordenado: {:?}", vector); 
     insertion_sortdec(&mut vector);  
     println!("Vetor ordenado: {:?}", vector); 
+   match linear_search(num, &mut vector){
+Some(posição)=>println!("valor {} está  na posição {}", num,posição),
+None=>println!("valor não encontrado"),
+   }
 }
